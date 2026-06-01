@@ -1,0 +1,9 @@
+{
+  "name": "shanghai-pig-phenotype-system",
+  "private": true,
+  "scripts": {
+    "dev:api": "npm --prefix apps/api run start:dev",
+    "dev:web": "npm --prefix apps/web run dev",
+    "build:shared": "npm --prefix packages/shared run build"
+  }
+}

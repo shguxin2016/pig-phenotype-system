@@ -1,0 +1,25 @@
+FROM docker.m.daocloud.io/library/node:20-alpine AS build
+
+WORKDIR /app
+
+COPY packages/shared ./packages/shared
+RUN cd packages/shared && npm ci --ignore-scripts
+RUN cd packages/shared && npm run build
+
+COPY apps/api/package.json apps/api/package-lock.json ./apps/api/
+RUN cd apps/api && npm ci
+
+COPY apps/api ./apps/api
+RUN cd apps/api && npm run build
+
+FROM node:20-alpine AS runner
+
+WORKDIR /app
+
+COPY --from=build /app/apps/api/dist ./dist
+COPY --from=build /app/apps/api/node_modules ./node_modules
+COPY --from=build /app/apps/api/package.json ./package.json
+
+EXPOSE 3001
+
+CMD ["node", "dist/main"]

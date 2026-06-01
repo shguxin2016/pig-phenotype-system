@@ -1,0 +1,57 @@
+<h2>Task 7：胴体性状录入页布局</h2>
+<p class="subtitle">选择一个更符合你们录入习惯的页面结构（字段仍可后续微调）</p>
+
+<div class="options">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>单页分组（推荐）</h3>
+      <p>一个页面按“基础→测量→分割→产出/比例(只读)”分块，适合快速录入与对照。</p>
+    </div>
+  </div>
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>两步表单</h3>
+      <p>第 1 步录入基础/测量；第 2 步录入分割与腿臀，减少单屏字段密度。</p>
+    </div>
+  </div>
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>按“关键字段优先”的精简页</h3>
+      <p>默认只展示常用字段，其余折叠在“更多”。适合现场录入但实现稍复杂。</p>
+    </div>
+  </div>
+</div>
+
+<hr />
+
+<h3>拟定字段分组（A/B 都适用）</h3>
+<div class="grid" style="grid-template-columns:1fr 1fr;gap:12px">
+  <div class="card">
+    <div class="card-body">
+      <h4>基础</h4>
+      <p>屠宰日期、宰前重、左右胴体重、肋骨数、备注</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h4>测量</h4>
+      <p>胴体长、体斜长、背膘(肩/最后肋/腰)、皮厚、眼肌(面积/高/宽)</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h4>分割（左半胴体）</h4>
+      <p>皮、骨、脂、瘦、腿、蹄、头</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h4>自动计算（只读）</h4>
+      <p>分割总重、分割损耗、腿臀比、皮/骨/脂/瘦率、屠宰率</p>
+    </div>
+  </div>
+</div>
+
